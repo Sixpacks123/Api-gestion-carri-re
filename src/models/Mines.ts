@@ -1,5 +1,6 @@
 import { sequelize } from '../config/database'
 import {Model, DataTypes} from 'sequelize'
+import { Consessions } from './Consessions';
 
 
 export class Mines extends Model{
@@ -29,12 +30,12 @@ Mines.init({
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    id_consessions: {
+    id_concessions: {
         type: DataTypes.INTEGER,
         allowNull: false ,
         references: {
             model: 'consessions',
-            key: 'id'
+            key: 'id_concessions'
         }
     },
 },
@@ -45,5 +46,4 @@ Mines.init({
 
 });
 
-
-//ajouter la relatiosn a conssesion
+Mines.hasOne(Consessions, {foreignKey: "id_concessions"})
