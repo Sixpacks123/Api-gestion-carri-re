@@ -1,6 +1,6 @@
 import { sequelize } from '../config/database'
 import {Model, DataTypes} from 'sequelize'
-import { Consessions } from './Consessions';
+import { Concessions } from './Concessions';
 
 
 export class Mines extends Model{
@@ -46,4 +46,5 @@ Mines.init({
 
 });
 
-Mines.hasOne(Consessions, {foreignKey: "id_concessions"})
+Mines.hasOne(Concessions, {foreignKey: "id_concessions"})
+Concessions.belongsTo(Mines, {foreignKey: "id_concessions"})

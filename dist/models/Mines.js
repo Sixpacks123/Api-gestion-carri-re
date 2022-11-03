@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Mines = void 0;
 const database_1 = require("../config/database");
 const sequelize_1 = require("sequelize");
-const Consessions_1 = require("./Consessions");
+const Concessions_1 = require("./Concessions");
 class Mines extends sequelize_1.Model {
 }
 exports.Mines = Mines;
@@ -39,4 +39,5 @@ Mines.init({
     tableName: "mines",
     timestamps: false
 });
-Mines.hasOne(Consessions_1.Consessions, { foreignKey: "id_concessions" });
+Mines.hasOne(Concessions_1.Concessions, { foreignKey: "id_concessions" });
+Concessions_1.Concessions.belongsTo(Mines, { foreignKey: "id_concessions" });

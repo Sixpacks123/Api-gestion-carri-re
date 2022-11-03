@@ -38,14 +38,5 @@ class MinesControllers extends CrudControllers_1.CrudController {
             res.json({ 'message': 'modification impossible' });
         });
     }
-    delete(req, res) {
-        mines_1.Mines.destroy({ where: { id_mines: req.params.id } })
-            .then(result => {
-            res.status(200).json({ message: "Deleted successfully" });
-        })
-            .catch(function (error) {
-            res.status(500).json(error);
-        });
-    }
 }
 exports.MinesControllers = MinesControllers;

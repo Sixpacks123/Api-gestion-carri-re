@@ -2,16 +2,16 @@ import { sequelize } from '../config/database'
 import {Model, DataTypes} from 'sequelize'
 
 
-export class Addresses extends Model{
-    declare id_addresses: number;
+export class Adresses extends Model{
+    declare id_adresses: number;
     declare street: string;
     declare complement: string;
     declare zipcode: string;
     declare town : string;
 }
 
-Addresses.init({
-    id_addresses: {
+Adresses.init({
+    id_adresses: {
         type: DataTypes.NUMBER,
         primaryKey: true,
         autoIncrement: true,

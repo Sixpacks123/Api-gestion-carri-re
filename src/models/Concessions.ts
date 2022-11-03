@@ -1,10 +1,10 @@
 import { sequelize } from '../config/database'
 import {Model, DataTypes} from 'sequelize'
-import {Addresses} from "./Addresses";
+import {Adresses} from "./Adresses";
 
 
-export class Consessions extends Model{
-    declare id_consessions: number;
+export class Concessions extends Model{
+    declare id_concessions: number;
     declare name: string;
     declare siret: number;
     declare license: string;
@@ -12,8 +12,8 @@ export class Consessions extends Model{
     declare id_address: number;
 }
 
-Consessions.init({
-    id_consessions: {
+Concessions.init({
+    id_concessions: {
         type: DataTypes.NUMBER,
         primaryKey: true,
         autoIncrement: true,
@@ -32,28 +32,23 @@ Consessions.init({
         type: DataTypes.STRING,
         allowNull:false,
     },
-    latitude: {
+    phone: {
         type : DataTypes.NUMBER,
         allowNull:true,
     },
-    longitude:{
-        type : DataTypes.NUMBER,
-        allowNull:true,
-    },
-    id_address: {
+    id_adresses: {
         type: DataTypes.INTEGER,
         allowNull: false ,
         references: {
-            model: 'addresses',
-            key: 'id_addresses'
+            model: 'adresses',
+            key: 'id_adresses'
         }
     },
 },
     {
         sequelize,
-        tableName: "consessions",
+        tableName: "concessions",
         timestamps: false
 
 });
-
-Addresses.hasOne(Consessions,{ foreignKey: "id_address"})
+Concessions.hasOne(Adresses,{ foreignKey: "id_adresses"})
