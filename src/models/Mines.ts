@@ -45,6 +45,5 @@ Mines.init({
         timestamps: false
 
 });
-
 Mines.hasOne(Concessions, {foreignKey: "id_concessions"})
 Concessions.belongsTo(Mines, {foreignKey: "id_concessions"})
